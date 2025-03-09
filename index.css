@@ -1,0 +1,43 @@
+:root {
+  --main-font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+body {
+  font-family: var(--main-font-family);
+}
+
+.page-header-logo {
+  font-size: 2.25rem;
+  font-weight: 550;
+}
+
+.header-icon {
+  font-size: 1.5rem;
+}
+
+.section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.paper-container {
+  padding: .8rem;
+}
+
+.paper-title {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.venue-name {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.author-name {
+  font-size: .8rem;
+}
+
+.paper-link {
+  font-size: .8rem;
+}

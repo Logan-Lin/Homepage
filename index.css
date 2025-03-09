@@ -6,18 +6,6 @@ body {
   font-family: var(--main-font-family);
 }
 
-.page-header-logo {
-  font-size: 2.25rem;
-  font-weight: 600;
-  font-family: "Times New Roman", serif;
-}
-
-@media (max-width: 576px) {
-  .page-header-logo {
-    font-size: 1.5rem;
-  }
-}
-
 .header-icon {
   font-size: 1.5rem;
 }

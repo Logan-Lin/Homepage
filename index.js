@@ -1,5 +1,5 @@
 function renderPublication(pub, type) {
-  return `<div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 position-relative">
+  return `<div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 position-relative transition-shadow" style="transition: box-shadow 0.2s ease-in-out;" onmouseover="this.classList.add('shadow-sm')" onmouseout="this.classList.remove('shadow-sm')">
             <div class="col d-flex flex-column position-static paper-container">
               <div class="d-flex justify-content-between align-items-center mb-1">
                 <p class="d-inline-block mb-0 venue-name ${type === 'primary' ? 'text-danger-emphasis' : 'text-primary-emphasis'}">
@@ -16,7 +16,7 @@ function renderPublication(pub, type) {
 }
 
 function renderProject(project, type) {
-  return `<div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 position-relative">
+  return `<div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 position-relative transition-shadow" style="transition: box-shadow 0.2s ease-in-out;" onmouseover="this.classList.add('shadow-sm')" onmouseout="this.classList.remove('shadow-sm')">
             <div class="col d-flex flex-column position-static paper-container">
               <div class="d-flex justify-content-between align-items-center mb-1">
                 <p class="d-inline-block mb-0 venue-name ${type === 'primary' ? 'text-danger-emphasis' : 'text-primary-emphasis'}">
@@ -33,7 +33,7 @@ function renderProject(project, type) {
 }
 
 function renderPresentation(present, type) {
-  return `<div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 position-relative">
+  return `<div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 position-relative transition-shadow" style="transition: box-shadow 0.2s ease-in-out;" onmouseover="this.classList.add('shadow-sm')" onmouseout="this.classList.remove('shadow-sm')">
             <div class="col d-flex flex-column position-static paper-container">
               <div class="d-flex justify-content-between align-items-center mb-1">
                 <p class="d-inline-block mb-0 venue-name ${type === 'primary' ? 'text-danger-emphasis' : 'text-primary-emphasis'}">
@@ -58,7 +58,7 @@ function renderLinks(links) {
 }
 
 function renderList(list) {
-  return `<ul class="mb-2">
+  return `<ul class="mb-2 px-2 px-md-4">
             ${list.map(item => `<li class="">${item}</li>`).join("")}
           </ul>`;
 }

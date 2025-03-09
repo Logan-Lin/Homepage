@@ -164,7 +164,7 @@ const profileData = {
       }
     },
     {
-      title: "Multi-scale adaptive attention-based time-variant neural networks for multi-step time series forecasting",
+      title: "Multi-scale Adaptive Attention-based Time-Variant Neural Networks for Multi-step Time Series Forecasting",
       authors: "Changxia Gao, Ning Zhang, Youru Li, <strong>Yan Lin</strong>, Huaiyu Wan",
       venue: "APIN",
       year: "2023",

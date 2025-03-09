@@ -24,15 +24,20 @@ body {
   font-weight: 500;
 }
 
+.paper-link {
+  font-size: 1rem;
+}
+
 .venue-name {
   font-size: 1rem;
   font-weight: 500;
 }
 
-.author-name {
+.author-name, .project-desc {
   font-size: .8rem;
 }
 
 .paper-link {
   font-size: .8rem;
+  font-family: 'Lato', monospace;
 }

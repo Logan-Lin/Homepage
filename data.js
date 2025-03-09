@@ -182,5 +182,90 @@ const profileData = {
         Code: "https://github.com/Water2sea/WITRAN"
       }
     },
+  ],
+  primaryProjects: [
+    {
+      title: 'Research on <i>Prediction of User Travel Destination and Travel Time Based on Trajectory Representation Learning</i>',
+      venue: "Fundamental Research Funds for the Central Universities of China",
+      desc: "Applies representation learning to trajectory data to transform original features into high-level information, improving the performance of downstream tasks such as travel time and destination prediction.",
+      links: {}
+    },
+    {
+      title: 'Development of <i>OverleafCopilot - Empowering Academic Writing in Overleaf with Large Language Models</i>',
+      venue: "Personal Interest Project",
+      desc: "This project aims to develop a Browser extension to seamlessly integrate Large Language Models (such as ChatGPT) into the popular online academic writing platform, Overleaf.",
+      links: {
+        Home: "https://www.overleafcopilot.com/",
+        Install: "https://chromewebstore.google.com/detail/overleaf-copilot/eoadabdpninlhkkbhngoddfjianhlghb"
+      }
+    }
+  ],
+  secondaryProjects: [
+    {
+      title: 'Research on <i>Inverse Design of Materials Using Diffusion Probabilistic Models</i>',
+      venue: "Villum Foundation",
+      desc: "This project focuses on developing diffusion probabilistic models to first understand the relationship between chemistry/structure and material properties, then enable the inverse design of new materials with specific properties. This project currently supports my postdoctoral research position.",
+      links: {}
+    },
+    {
+      title: 'Research on <i>Pre-training Representation Learning Methods of Spatial-temporal Trajectory Data for Traffic Prediction</i>',
+      venue: "National Natural Science Foundation of China",
+      desc: "This project aims to propose pre-training representation learning methods for spatial-temporal trajectory data, modeling multiple features to improve traffic prediction tasks. It demonstrates how trajectory representation learning can enhance traffic data mining.",
+      links: {}
+    },
+    {
+      title: 'Research on <i>Spatial-temporal Trajectory Generation and Representation Learning Methods for Sparsity Problems</i>',
+      venue: "National Natural Science Foundation of China",
+      desc: "This project explores how to generate high-quality spatial-temporal trajectory data and corresponding representations to address sparsity-related issues, thereby supporting a variety of downstream tasks.",
+      links: {}
+    }
+  ],
+  presentations: [
+    {
+      title: 'Self-supervised Learning of Trajectory Data',
+      venue: "Guest lecture",
+      location: "Aalborg University",
+      links: {
+        Slides: "./assets/Self-supervised Learning of Trajectory Data.pdf"
+      }
+    },
+    {
+      title: 'PLM4Traj: Leveraging Pre-trained Language Models for Cognizing Movement Patterns and Travel Purposes from Trajectories',
+      venue: "Workshop presentation",
+      location: "KDD 2024",
+      links: {
+        Slides: "./assets/KDD_2024_Workshop_PLM4Traj.pdf"
+      }
+    },
+    {
+      title: 'Origin-Destination Travel Time Oracle for Map-based Services',
+      venue: "Paper Oral",
+      location: "SIGMOD 2024",
+      links: {
+        Slides: "./assets/SIGMOD-Oral-PPT.pdf"
+      }
+    },
+    {
+      title: 'Self-supervised Learning of Spatial-temporal Trajectories',
+      venue: "Tutorial",
+      location: "SpatialDI 2024",
+      links: {
+        Slides: "./assets/Talk on SpatialDI 2024.pdf"
+      }
+    },
+    {
+      title: 'Pre-training Context and Time Aware Location Embeddings from Spatial-Temporal Trajectories for User Next Location Prediction',
+      venue: "Paper Oral",
+      location: "AAAI 2021",
+      links: {
+        Slides: "./assets/AAAI21 Oral PPT.pdf"
+      }
+    }
+  ],
+  services: [
+    "IEEE, ACM member",
+    "Secretary of IEEE (Denmark Section) Computer Society",
+    "Reviewer for journals including TIST, TII, and TVT",
+    "Member of program committees of ICLR, KDD, AAAI, CVPR, ICCV, IJCAI, and WWW"
   ]
 };

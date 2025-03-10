@@ -25,7 +25,7 @@ const profileData = {
       title: "DutyTTE: Deciphering Uncertainty in Origin-Destination Travel Time Estimation",
       authors: "Xiaowei Mao*, <strong>Yan Lin*</strong>, Shengnan Guo, Yubin Chen, Xingyu Xian, Haomin Wen, Qisen Xu, Youfang Lin, Huaiyu Wan",
       venue: "AAAI",
-      year: "2024",
+      year: "2025",
       links: {
         Preprint: "https://arxiv.org/abs/2408.12809"
       }

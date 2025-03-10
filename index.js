@@ -46,7 +46,7 @@ function renderLinks(links) {
   let linksHtml = '';
   for (const [key, url] of Object.entries(links)) {
     // Convert camelCase to Title Case (e.g., paperLink -> Paper)
-    linksHtml += `<a class="icon-link icon-link-hover paper-link link-primary" href="${url}" target="_blank" rel="noopener noreferrer">${key}</a>`;
+    linksHtml += `<a class="icon-link icon-link-hover paper-link link-secondary" href="${url}" target="_blank" rel="noopener noreferrer">${key}</a>`;
   }
   return linksHtml;
 }

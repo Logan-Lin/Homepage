@@ -1,6 +1,5 @@
 function renderPublication(pub, type) {
-  return `<div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 position-relative transition-shadow" style="transition: box-shadow 0.2s ease-in-out;" onmouseover="this.classList.add('shadow-sm')" onmouseout="this.classList.remove('shadow-sm')">
-            <div class="col d-flex flex-column position-static paper-container">
+  return `<div class="list-group-item px-0">
               <div class="d-flex justify-content-between align-items-center mb-1">
                 <p class="d-inline-block mb-0 venue-name ${type === 'primary' ? 'text-danger-emphasis' : 'text-primary-emphasis'}">
                   ${pub.venue} <span class="text-muted">|</span> ${pub.year}
@@ -11,40 +10,35 @@ function renderPublication(pub, type) {
               </div>
               <h5 class="mb-1 paper-title">${pub.title}</h5>
               <p class="card-text mb-auto author-name">${pub.authors}</p>
-            </div>
-          </div>`;
+            </div>`;
 }
 
 function renderProject(project, type) {
-  return `<div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 position-relative transition-shadow" style="transition: box-shadow 0.2s ease-in-out;" onmouseover="this.classList.add('shadow-sm')" onmouseout="this.classList.remove('shadow-sm')">
-            <div class="col d-flex flex-column position-static paper-container">
-              <div class="d-flex justify-content-between align-items-center mb-1">
-                <p class="d-inline-block mb-0 venue-name ${type === 'primary' ? 'text-danger-emphasis' : 'text-primary-emphasis'}">
-                  ${project.venue}
-                </p>
-                <div class="d-flex gap-2">
-                  ${renderLinks(project.links)}
-                </div>
+  return `<div class="list-group-item px-0">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <p class="d-inline-block mb-0 venue-name ${type === 'primary' ? 'text-danger-emphasis' : 'text-primary-emphasis'}">
+                ${project.venue}
+              </p>
+              <div class="d-flex gap-2">
+                ${renderLinks(project.links)}
               </div>
-              <h5 class="mb-1 paper-title">${project.title}</h5>
-              <p class="card-text mb-auto project-desc">${project.desc}</p>
             </div>
+            <h5 class="mb-1 paper-title">${project.title}</h5>
+            <p class="card-text mb-auto project-desc">${project.desc}</p>
           </div>`;
 }
 
 function renderPresentation(present, type) {
-  return `<div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 position-relative transition-shadow" style="transition: box-shadow 0.2s ease-in-out;" onmouseover="this.classList.add('shadow-sm')" onmouseout="this.classList.remove('shadow-sm')">
-            <div class="col d-flex flex-column position-static paper-container">
-              <div class="d-flex justify-content-between align-items-center mb-1">
-                <p class="d-inline-block mb-0 venue-name ${type === 'primary' ? 'text-danger-emphasis' : 'text-primary-emphasis'}">
-                  ${present.venue} <span class="text-muted">|</span> ${present.location}
-                </p>
-                <div class="d-flex gap-2">
-                  ${renderLinks(present.links)}
-                </div>
+  return `<div class="list-group-item px-0">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <p class="d-inline-block mb-0 venue-name ${type === 'primary' ? 'text-danger-emphasis' : 'text-primary-emphasis'}">
+                ${present.venue} <span class="text-muted">|</span> ${present.location}
+              </p>
+              <div class="d-flex gap-2">
+                ${renderLinks(present.links)}
               </div>
-              <h5 class="mb-1 paper-title">${present.title}</h5>
             </div>
+            <h5 class="mb-1 paper-title">${present.title}</h5>
           </div>`;
 }
 

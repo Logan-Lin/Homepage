@@ -198,6 +198,15 @@ const profileData = {
         Home: "https://www.overleafcopilot.com/",
         Install: "https://chromewebstore.google.com/detail/overleaf-copilot/eoadabdpninlhkkbhngoddfjianhlghb"
       }
+    },
+    {
+      title: 'Development of <i>PromptGenius - All-purpose prompts for LLMs</i>',
+      venue: "Personal Interest Project",
+      desc: "This project focuses on developing a website that offers a wide range of prompt categories, enhancing the versatility of LLMs for various tasks and improving their output quality.",
+      links: {
+        Website: "https://www.promptgenius.site/",
+        Code: "https://github.com/wenhaomin/ChatGPT-PromptGenius"
+      }
     }
   ],
   secondaryProjects: [
@@ -234,7 +243,8 @@ const profileData = {
       venue: "Workshop presentation",
       location: "KDD 2024",
       links: {
-        Slides: "./assets/KDD_2024_Workshop_PLM4Traj.pdf"
+        Slides: "./assets/KDD_2024_Workshop_PLM4Traj.pdf",
+        Paper: "https://arxiv.org/abs/2405.12459"
       }
     },
     {

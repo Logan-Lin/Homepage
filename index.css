@@ -6,6 +6,10 @@ body {
   font-family: var(--main-font-family);
 }
 
+.nav-link {
+  font-family: 'Lato', monospace;
+}
+
 .header-icon {
   font-size: 1.5rem;
 }

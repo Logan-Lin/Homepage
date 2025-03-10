@@ -76,12 +76,12 @@ $(document).ready(function() {
     $secondaryProjectsContainer.html(profileData.secondaryProjects.map(renderProject).join(""));
   }
 
-  const $presentationsContainer = $("#presentations");
+  const $presentationsContainer = $("#presentation-list");
   if ($presentationsContainer.length) {
     $presentationsContainer.html(profileData.presentations.map(presentation => renderPresentation(presentation, 'primary')).join(""));
   }
 
-  const $servicesContainer = $("#services");
+  const $servicesContainer = $("#service-list");
   if ($servicesContainer.length) {
     $servicesContainer.html(renderList(profileData.services));
   }

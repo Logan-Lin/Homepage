@@ -6,7 +6,7 @@ body {
   font-family: var(--main-font-family);
 }
 
-.nav-link {
+.link {
   font-family: 'Lato', monospace;
 }
 
@@ -43,5 +43,4 @@ body {
 
 .paper-link {
   font-size: .8rem;
-  font-family: 'Lato', monospace;
 }

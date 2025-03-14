@@ -235,7 +235,7 @@ const profileData = {
       venue: "Guest lecture",
       location: "Aalborg University",
       links: {
-        Slides: "./assets/Self-supervised Learning of Trajectory Data.pdf"
+        Slides: "/assets/Self-supervised Learning of Trajectory Data.pdf"
       }
     },
     {
@@ -243,7 +243,7 @@ const profileData = {
       venue: "Workshop presentation",
       location: "KDD 2024",
       links: {
-        Slides: "./assets/KDD_2024_Workshop_PLM4Traj.pdf",
+        Slides: "/assets/KDD_2024_Workshop_PLM4Traj.pdf",
         Paper: "https://arxiv.org/abs/2405.12459"
       }
     },
@@ -252,7 +252,7 @@ const profileData = {
       venue: "Paper Oral",
       location: "SIGMOD 2024",
       links: {
-        Slides: "./assets/SIGMOD-Oral-PPT.pdf"
+        Slides: "/assets/SIGMOD-Oral-PPT.pdf"
       }
     },
     {
@@ -260,7 +260,7 @@ const profileData = {
       venue: "Tutorial",
       location: "SpatialDI 2024",
       links: {
-        Slides: "./assets/Talk on SpatialDI 2024.pdf"
+        Slides: "/assets/Talk on SpatialDI 2024.pdf"
       }
     },
     {
@@ -268,7 +268,7 @@ const profileData = {
       venue: "Paper Oral",
       location: "AAAI 2021",
       links: {
-        Slides: "./assets/AAAI21 Oral PPT.pdf"
+        Slides: "/assets/AAAI21 Oral PPT.pdf"
       }
     }
   ],

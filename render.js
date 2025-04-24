@@ -1,7 +1,7 @@
 function renderPublication(pub, type) {
   return `<div class="list-group-item px-0">
               <div class="d-flex justify-content-between align-items-center mb-1">
-                <p class="d-inline-block mb-0 venue-name ${type === 'primary' ? 'text-danger-emphasis' : 'text-primary-emphasis'}">
+                <p class="d-inline-block mb-0 venue-name ${type === 'primary' ? 'primary-text' : 'secondary-text'}">
                   ${pub.tags.join("<span class='text-muted'> | </span>")}
                 </p>
                 <div class="d-flex gap-2">
@@ -16,7 +16,7 @@ function renderPublication(pub, type) {
 function renderProject(project, type) {
   return `<div class="list-group-item px-0">
             <div class="d-flex justify-content-between align-items-center mb-1">
-              <p class="d-inline-block mb-0 venue-name ${type === 'primary' ? 'text-danger-emphasis' : 'text-primary-emphasis'}">
+              <p class="d-inline-block mb-0 venue-name ${type === 'primary' ? 'primary-text' : 'secondary-text'}">
                 ${project.tags.join("<span class='text-muted'> | </span>")}
               </p>
               <div class="d-flex gap-2">
@@ -31,7 +31,7 @@ function renderProject(project, type) {
 function renderPresentation(present, type) {
   return `<div class="list-group-item px-0">
             <div class="d-flex justify-content-between align-items-center mb-1">
-              <p class="d-inline-block mb-0 venue-name ${type === 'primary' ? 'text-danger-emphasis' : 'text-primary-emphasis'}">
+              <p class="d-inline-block mb-0 venue-name ${type === 'primary' ? 'primary-text' : 'secondary-text'}">
                 ${present.tags.join("<span class='text-muted'> | </span>")}
               </p>
               <div class="d-flex gap-2">

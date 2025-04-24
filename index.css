@@ -63,6 +63,7 @@ body {
   .list-group-flush .list-group-item {
     background-color: transparent;
     color: var(--text-color);
+    border-color: var(--border-color);
   }
   
   .text-muted {

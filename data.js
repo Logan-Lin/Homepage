@@ -1,6 +1,18 @@
 const profileData = {
   primaryPublications: [
     {
+      title: "TrajCogn: Leveraging LLMs for Cognizing Movement Patterns and Travel Purposes from Trajectories",
+      authors: "Zeyu Zhou*, <strong>Yan Lin*</strong>, Haomin Wen, Shengnan Guo, Jilin Hu, Youfang Lin, Huaiyu Wan",
+      tags: [
+        "IJCAI",
+        "2025"
+      ],
+      links: {
+        Preprint: "https://arxiv.org/abs/2405.12459",
+        Code: "https://github.com/Zeru19/PLM4Traj"
+      }
+    },
+    {
       title: "UniTE: A Survey and Unified Pipeline for Pre-training Spatiotemporal Trajectory Embeddings",
       authors: "<strong>Yan Lin</strong>, Zeyu Zhou, Yicheng Liu, Haochen Lv, Haomin Wen, Tianyi Li, Yushuai Li, Christian S. Jensen, Shengnan Guo, Youfang Lin, Huaiyu Wan",
       tags: [

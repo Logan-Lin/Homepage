@@ -11,15 +11,15 @@ $(document).ready(function() {
   const $primaryProjectsContainer = $("#primary-projects");
   const $secondaryProjectsContainer = $("#secondary-projects");
   if ($primaryProjectsContainer.length) {
-    $primaryProjectsContainer.html(profileData.primaryProjects.slice(0, 10).map(project => renderProject(project, 'primary')).join(""));
+    $primaryProjectsContainer.html(profileData.primaryProjects.slice(0, 3).map(project => renderProject(project, 'primary')).join(""));
   }
   if ($secondaryProjectsContainer.length) {
-    $secondaryProjectsContainer.html(profileData.secondaryProjects.slice(0, 10).map(project => renderProject(project, 'secondary')).join(""));
+    $secondaryProjectsContainer.html(profileData.secondaryProjects.slice(0, 3).map(project => renderProject(project, 'secondary')).join(""));
   }
 
   const $presentationsContainer = $("#presentation-list");
   if ($presentationsContainer.length) {
-    $presentationsContainer.html(profileData.presentations.map(presentation => renderPresentation(presentation, 'primary')).join(""));
+    $presentationsContainer.html(profileData.presentations.slice(0, 5).map(presentation => renderPresentation(presentation, 'primary')).join(""));
   }
 
   const $servicesContainer = $("#service-list");

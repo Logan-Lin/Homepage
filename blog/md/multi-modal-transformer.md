@@ -44,7 +44,7 @@ The most common method for mapping language into the embedding space is through 
 
 > Visualization of tokenizer and index-fetching embedding layer. [Source](https://medium.com/@hunter-j-phillips/the-embedding-layer-27d9c980d124)
 
-### Vector Quantization
+## Vector Quantization
 
 For continuous features, one intuitive approach is to first tokenize them into discrete tokens, thereby unifying the embedding process across both discrete and continuous features. **Vector quantization**, introduced in VQ-VAE, is one of the most common methods for this purpose.
 

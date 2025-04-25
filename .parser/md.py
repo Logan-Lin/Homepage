@@ -1,5 +1,7 @@
 import markdown
 import re
+import os
+import glob
 from typing import List
 
 
@@ -25,7 +27,7 @@ def markdown_to_html_paragraphs(markdown_text: str) -> List[str]:
     if lines and lines[0].strip().startswith('#'):
         has_h1_title = True
         title_line = lines[0].strip().lstrip('#').strip()
-        bold_title = f'<h1 class="blog-title">{title_line}</h1>'
+        bold_title = f'<p class="blog-title">{title_line}</p>'
         # Remove the title from the markdown to avoid duplicate processing
         markdown_text = '\n'.join(lines[1:])
     else:
@@ -131,19 +133,36 @@ def insert_markdown_into_template(template_path: str, markdown_text: str) -> str
     return complete_html
 
 
-if __name__ == "__main__":
-    import argparse
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-m', "--md_path", type=str, required=True)
-    parser.add_argument('-o', "--html_path", type=str, required=True)
-    args = parser.parse_args()
-
-    with open(f"blog/md/{args.md_path}.md", "r") as f:
-        markdown_text = f.read()
-    html_paragraphs = markdown_to_html_paragraphs(markdown_text)
+def process_all_markdown_files():
+    """
+    Process all markdown files in blog/md/ directory and generate HTML files in blog/html/.
+    """
+    # Get all markdown files in blog/md/
+    md_files = glob.glob("blog/md/*.md")
+    template_path = "blog/template.html"
     
-    # Test the new function
-    complete_html = insert_markdown_into_template("blog/template.html", markdown_text)
-    with open(f"blog/html/{args.md_path}.html", "w") as f:
-        f.write(complete_html)
+    for md_file in md_files:
+        # Extract base filename without extension
+        base_name = os.path.basename(md_file)[:-3]  # Remove .md extension
+        html_file = f"blog/html/{base_name}.html"
+        
+        print(f"Processing {md_file} -> {html_file}")
+        
+        try:
+            # Read the markdown content
+            with open(md_file, "r") as f:
+                markdown_text = f.read()
+            
+            # Generate HTML content
+            complete_html = insert_markdown_into_template(template_path, markdown_text)
+            
+            # Write HTML output
+            with open(html_file, "w") as f:
+                f.write(complete_html)
+            
+        except Exception as e:
+            print(f"Error processing {md_file}: {str(e)}")
+
+
+if __name__ == "__main__":
+    process_all_markdown_files()

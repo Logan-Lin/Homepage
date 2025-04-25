@@ -87,12 +87,12 @@
 <p>A fundamental challenge in unifying multiple modalities within a single Transformer is how to represent different modalities in the same embedding space. For the "QKV" self-attention mechanism to work properly, each item in the input sequence must be represented by an embedding vector of the same dimension, matching the "model dimension" of the Transformer.</p>
 <figure class="figure">
   <img alt="image (2)" src="/blog/md/multi-modal-transformer.assets/image (2).png" / class="figure-img img-fluid rounded">
-  <figcaption class="figure-caption">Illustration of the QKV self-attention mechanism in Transformer. Source: https://en.wikipedia.org/wiki/Attention_(machine_learning)</figcaption>
+  <figcaption class="figure-caption">Illustration of the QKV self-attention mechanism in Transformer. <a href="https://en.wikipedia.org/wiki/Attention_(machine_learning)" class="link" target="_blank">Source</a></figcaption>
 </figure>
 <p>The most common method for mapping language into the embedding space is through tokenization and token embedding. A tokenizer maps a word or word fragment into a discrete token index, and an index-fetching embedding layer (implemented in frameworks like PyTorch with <code>nn.Embedding</code>) maps this index into a fixed-dimension embedding vector. In principle, all discrete features can be mapped into the embedding space using this approach.</p>
 <figure class="figure">
   <img alt="1_Dk1X5rmLomXqqTPeuHgBpw" src="/blog/md/multi-modal-transformer.assets/1_Dk1X5rmLomXqqTPeuHgBpw.png" / class="figure-img img-fluid rounded">
-  <figcaption class="figure-caption">Visualization of tokenizer and index-fetching embedding layer. Source: https://medium.com/@hunter-j-phillips/the-embedding-layer-27d9c980d124</figcaption>
+  <figcaption class="figure-caption">Visualization of tokenizer and index-fetching embedding layer. <a href="https://medium.com/@hunter-j-phillips/the-embedding-layer-27d9c980d124" class="link" target="_blank">Source</a></figcaption>
 </figure>
 <h2>Vector Quantization</h2>
 <p>For continuous features, one intuitive approach is to first tokenize them into discrete tokens, thereby unifying the embedding process across both discrete and continuous features. <strong>Vector quantization</strong>, introduced in VQ-VAE, is one of the most common methods for this purpose.</p>
@@ -141,9 +141,9 @@ $$</p>
 </blockquote>
 <p>Nevertheless, representation learning is still a relevant topic. The general understanding is that decoder-only structure cannot perform conventional representation learning, for example mapping a sentence into a fixed-dimension embedding vector. Yet, there are a few works in the latest ICLR that shed light on the utilization of LLMs as representation learning or embedding models:</p>
 <blockquote>
-<p>Gao, Leo, Tom Dupre la Tour, Henk Tillman, Gabriel Goh, Rajan Troll, Alec Radford, Ilya Sutskever, Jan Leike, and Jeffrey Wu. “Scaling and Evaluating Sparse Autoencoders,” 2024. https://openreview.net/forum?id=tcsZt9ZNKD.</p>
-<p>Li, Ziyue, and Tianyi Zhou. “Your Mixture-of-Experts LLM Is Secretly an Embedding Model for Free,” 2024. https://openreview.net/forum?id=eFGQ97z5Cd.</p>
-<p>Zhang, Jie, Dongrui Liu, Chen Qian, Linfeng Zhang, Yong Liu, Yu Qiao, and Jing Shao. “REEF: Representation Encoding Fingerprints for Large Language Models,” 2024. https://openreview.net/forum?id=SnDmPkOJ0T.</p>
+<p>Gao, Leo, Tom Dupre la Tour, Henk Tillman, Gabriel Goh, Rajan Troll, Alec Radford, Ilya Sutskever, Jan Leike, and Jeffrey Wu. “Scaling and Evaluating Sparse Autoencoders,” 2024. <a href="https://openreview.net/forum?id=tcsZt9ZNKD" class="link" target="_blank">Link</a></p>
+<p>Li, Ziyue, and Tianyi Zhou. “Your Mixture-of-Experts LLM Is Secretly an Embedding Model for Free,” 2024. <a href="https://openreview.net/forum?id=eFGQ97z5Cd" class="link" target="_blank">Link</a></p>
+<p>Zhang, Jie, Dongrui Liu, Chen Qian, Linfeng Zhang, Yong Liu, Yu Qiao, and Jing Shao. “REEF: Representation Encoding Fingerprints for Large Language Models,” 2024. <a href="https://openreview.net/forum?id=SnDmPkOJ0T" class="link" target="_blank">Link</a></p>
 </blockquote>
 <h1>Output Layer</h1>
 <p>For language generation, Transformers typically use classifier output layers, mapping the latent vector of each item in the output sequence back to tokens. As we've established in the "modality embedding" section, the optimal method to embed continuous features is to quantize them into discrete tokens. Correspondingly, an intuitive method to output continuous features is to map these discrete tokens back to the continuous feature space, essentially reversing the vector quantization process.</p>

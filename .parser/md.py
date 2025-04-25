@@ -74,6 +74,11 @@ def markdown_to_html_paragraphs(markdown_text: str) -> List[str]:
         html,
         flags=re.DOTALL
     )
+    
+    # Add "link" class and target="_blank" to all <a> tags
+    html = re.sub(r'<a(.*?)>', r'<a\1 class="link" target="_blank">', html)
+    html = re.sub(r'<a(.*?)class="(.*?)"(.*?)class="(.*?)"(.*?)>', r'<a\1class="\2 \4"\3\5>', html)
+    html = re.sub(r'<a(.*?)target="(.*?)"(.*?)target="(.*?)"(.*?)>', r'<a\1target="\2"\3\5>', html)
 
     # Split the HTML into paragraphs
     paragraphs = html.split('\n\n')

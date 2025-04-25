@@ -36,13 +36,13 @@ A fundamental challenge in unifying multiple modalities within a single Transfor
 
 ![image (2)](multi-modal-transformer.assets/image (2).png)
 
-> Illustration of the QKV self-attention mechanism in Transformer. Source: https://en.wikipedia.org/wiki/Attention_(machine_learning)
+> Illustration of the QKV self-attention mechanism in Transformer. [Source](https://en.wikipedia.org/wiki/Attention_(machine_learning))
 
 The most common method for mapping language into the embedding space is through tokenization and token embedding. A tokenizer maps a word or word fragment into a discrete token index, and an index-fetching embedding layer (implemented in frameworks like PyTorch with `nn.Embedding`) maps this index into a fixed-dimension embedding vector. In principle, all discrete features can be mapped into the embedding space using this approach.
 
 ![1_Dk1X5rmLomXqqTPeuHgBpw](multi-modal-transformer.assets/1_Dk1X5rmLomXqqTPeuHgBpw.png)
 
-> Visualization of tokenizer and index-fetching embedding layer. Source: https://medium.com/@hunter-j-phillips/the-embedding-layer-27d9c980d124
+> Visualization of tokenizer and index-fetching embedding layer. [Source](https://medium.com/@hunter-j-phillips/the-embedding-layer-27d9c980d124)
 
 ## Vector Quantization
 
@@ -101,11 +101,11 @@ The encoder-only structure theoretically excels at representation learning, and 
 
 Nevertheless, representation learning is still a relevant topic. The general understanding is that decoder-only structure cannot perform conventional representation learning, for example mapping a sentence into a fixed-dimension embedding vector. Yet, there are a few works in the latest ICLR that shed light on the utilization of LLMs as representation learning or embedding models:
 
-> Gao, Leo, Tom Dupre la Tour, Henk Tillman, Gabriel Goh, Rajan Troll, Alec Radford, Ilya Sutskever, Jan Leike, and Jeffrey Wu. “Scaling and Evaluating Sparse Autoencoders,” 2024. https://openreview.net/forum?id=tcsZt9ZNKD.
+> Gao, Leo, Tom Dupre la Tour, Henk Tillman, Gabriel Goh, Rajan Troll, Alec Radford, Ilya Sutskever, Jan Leike, and Jeffrey Wu. “Scaling and Evaluating Sparse Autoencoders,” 2024. [Link](https://openreview.net/forum?id=tcsZt9ZNKD)
 
-> Li, Ziyue, and Tianyi Zhou. “Your Mixture-of-Experts LLM Is Secretly an Embedding Model for Free,” 2024. https://openreview.net/forum?id=eFGQ97z5Cd.
+> Li, Ziyue, and Tianyi Zhou. “Your Mixture-of-Experts LLM Is Secretly an Embedding Model for Free,” 2024. [Link](https://openreview.net/forum?id=eFGQ97z5Cd)
 
-> Zhang, Jie, Dongrui Liu, Chen Qian, Linfeng Zhang, Yong Liu, Yu Qiao, and Jing Shao. “REEF: Representation Encoding Fingerprints for Large Language Models,” 2024. https://openreview.net/forum?id=SnDmPkOJ0T.
+> Zhang, Jie, Dongrui Liu, Chen Qian, Linfeng Zhang, Yong Liu, Yu Qiao, and Jing Shao. “REEF: Representation Encoding Fingerprints for Large Language Models,” 2024. [Link](https://openreview.net/forum?id=SnDmPkOJ0T)
 
 # Output Layer
 

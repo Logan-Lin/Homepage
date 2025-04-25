@@ -22,6 +22,11 @@ $(document).ready(function() {
     $presentationsContainer.html(profileData.presentations.slice(0, 5).map(presentation => renderPresentation(presentation, 'primary')).join(""));
   }
 
+  const $blogsContainer = $("#blog-list");
+  if ($blogsContainer.length) {
+    $blogsContainer.html(profileData.blogs.slice(0, 5).map(blog => renderBlog(blog)).join(""));
+  }
+
   const $servicesContainer = $("#service-list");
   if ($servicesContainer.length) {
     $servicesContainer.html(renderList(profileData.services));

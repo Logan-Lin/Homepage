@@ -42,6 +42,13 @@ function renderPresentation(present, type) {
           </div>`;
 }
 
+function renderBlog(blog) {
+  return `<div class="list-group-item px-0">
+            <a class="mb-1 paper-title link-body-emphasis" href="/blog/html/${blog.path}.html">${blog.title}</a> | <span class="paper-title text-muted">${blog.badge}</span>
+            <p class="card-text mb-auto tldr">${blog.tldr}</p>
+          </div>`;
+}
+
 function renderLinks(links) {
   let linksHtml = '';
   for (const [key, url] of Object.entries(links)) {

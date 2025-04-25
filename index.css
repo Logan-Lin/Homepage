@@ -69,6 +69,16 @@ body {
   .text-muted {
     color: var(--text-secondary) !important;
   }
+
+  .link-body-emphasis {
+    color: var(--text-color) !important;
+    text-decoration: underline !important;
+  }
+
+  .link-body-emphasis:hover {
+    color: var(--link-hover-color) !important;
+    text-decoration: underline !important;
+  }
 }
 
 .link {
@@ -107,7 +117,7 @@ body {
   font-weight: 500;
 }
 
-.author-name, .project-desc {
+.author-name, .project-desc, .tldr {
   font-size: .8rem;
 }
 
@@ -121,4 +131,26 @@ body {
 
 .secondary-text {
   color: var(--secondary-text);
+}
+
+.blog-title {
+  font-family: 'PT Serif', serif;
+  font-weight: 600;
+}
+
+blockquote {
+  border-left: 4px solid var(--border-color);
+  margin: 1.5em 0;
+  padding: 0.5em 1em;
+  background-color: var(--background-secondary);
+}
+
+blockquote p {
+  margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  blockquote {
+    border-left-color: var(--border-color);
+  }
 }

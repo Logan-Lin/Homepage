@@ -134,11 +134,11 @@ if __name__ == "__main__":
     parser.add_argument('-o', "--html_path", type=str, required=True)
     args = parser.parse_args()
 
-    with open(args.md_path, "r") as f:
+    with open(f"blog/md/{args.md_path}.md", "r") as f:
         markdown_text = f.read()
     html_paragraphs = markdown_to_html_paragraphs(markdown_text)
     
     # Test the new function
     complete_html = insert_markdown_into_template("blog/template.html", markdown_text)
-    with open(args.html_path, "w") as f:
+    with open(f"blog/html/{args.md_path}.html", "w") as f:
         f.write(complete_html)

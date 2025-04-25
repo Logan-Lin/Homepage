@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yan Lin's Blog - Multi-Modal and Multi-function Transformers</title>
+  <title>Yan Lin's Blog - Multi-modal and Multi-function Transformers</title>
   <link rel="icon" href="/logo.webp" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
@@ -47,18 +47,12 @@
     }
     
     h2 {
-      font-size: calc(1.1rem + 0.6vw);
+      font-size: calc(1.1rem + 0.4vw);
       margin-top: 1.5rem;
     }
     
     h3 {
-      font-size: calc(1.0rem + 0.3vw);
-      font-weight: bold;
-      margin-top: 1rem;
-    }
-    
-    h4 {
-      font-size: calc(0.9rem + 0.1vw);
+      font-size: calc(0.95rem + 0.1vw);
       font-weight: bold;
       margin-top: 1rem;
     }
@@ -85,7 +79,7 @@
 
   <main class="container">
     <article class="section">
-      <p class="blog-title">Multi-Modal and Multi-function Transformers</p>
+      <p class="blog-title">Multi-modal and Multi-function Transformers</p>
 <p><p>Transformers have gained immense popularity within deep learning and AI communities in recent years. Since their introduction in <em>Vaswani et al., "Attention Is All You Need"</em>, they have proven to be powerful sequential models across diverse domains, with thousands of variations and "improved versions." The rise of Large Language Models (LLMs), which largely use Transformers as their foundation, has led to another surge in research around this architecture. This trend has even led graph learning and Computer Vision (CV) communities to move beyond their established foundation models (i.e., GNNs and CNNs) and embrace Transformers. This explains the increasing prevalence of graph Transformers and image Transformers today.</p>
 <blockquote>
 <p>Han et al., “A Survey on Vision Transformer”; Khan et al., “Transformers in Vision”; Yun et al., “Graph Transformer Networks.”</p>
@@ -122,7 +116,7 @@
   <img alt="1_Dk1X5rmLomXqqTPeuHgBpw" src="/blog/md/multi-modal-transformer.assets/1_Dk1X5rmLomXqqTPeuHgBpw.png" / class="figure-img img-fluid rounded">
   <figcaption class="figure-caption">Visualization of tokenizer and index-fetching embedding layer. <a href="https://medium.com/@hunter-j-phillips/the-embedding-layer-27d9c980d124" class="link" target="_blank">Source</a></figcaption>
 </figure>
-<h2>Vector Quantization</h2>
+<h3>Vector Quantization</h3>
 <p>For continuous features, one intuitive approach is to first tokenize them into discrete tokens, thereby unifying the embedding process across both discrete and continuous features. <strong>Vector quantization</strong>, introduced in VQ-VAE, is one of the most common methods for this purpose.</p>
 <blockquote>
 <p>Van Den Oord, Aaron, and Oriol Vinyals. "Neural discrete representation learning." NeurIPS, 2017.</p>

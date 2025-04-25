@@ -350,7 +350,7 @@ const profileData = {
   ],
   blogs: [
     {
-      "title": "Multi-Modal and Multi-function Transformers",
+      "title": "Multi-modal and Multi-function Transformers",
       "badge": "March 2025",
       "path": "multi-modal-transformer",
       "tldr": "Multi-modal and multi-function Transformers enables a single architecture to process diverse data types such as language, images, and videos simultaneously. These models employ techniques like vector quantization and lookup-free quantization to map different modalities into a unified embedding space, allowing the Transformer to handle them within the same sequence. Beyond processing multiple data types, these architectures can also combine different functionalities-such as auto-regressive language generation and diffusion-based image creation-within a single model."

@@ -1,4 +1,4 @@
-# Multi-Modal and Multi-function Transformers
+# Multi-modal and Multi-function Transformers
 
 Transformers have gained immense popularity within deep learning and AI communities in recent years. Since their introduction in *Vaswani et al., "Attention Is All You Need"*, they have proven to be powerful sequential models across diverse domains, with thousands of variations and "improved versions." The rise of Large Language Models (LLMs), which largely use Transformers as their foundation, has led to another surge in research around this architecture. This trend has even led graph learning and Computer Vision (CV) communities to move beyond their established foundation models (i.e., GNNs and CNNs) and embrace Transformers. This explains the increasing prevalence of graph Transformers and image Transformers today.
 
@@ -44,7 +44,7 @@ The most common method for mapping language into the embedding space is through 
 
 > Visualization of tokenizer and index-fetching embedding layer. [Source](https://medium.com/@hunter-j-phillips/the-embedding-layer-27d9c980d124)
 
-## Vector Quantization
+### Vector Quantization
 
 For continuous features, one intuitive approach is to first tokenize them into discrete tokens, thereby unifying the embedding process across both discrete and continuous features. **Vector quantization**, introduced in VQ-VAE, is one of the most common methods for this purpose.
 

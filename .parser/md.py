@@ -65,7 +65,16 @@ def markdown_to_html_paragraphs(markdown_text: str) -> List[str]:
         extensions=extensions,
         extension_configs=extension_configs
     )
-    
+
+    html = re.sub(r'<p>\s*(<img[^>]+>)\s*</p>', r'\1', html, flags=re.IGNORECASE)
+    # Convert image followed by blockquote to figure with caption
+    html = re.sub(
+        r'<img([^>]+)>\s*<blockquote>\s*<p>(.*?)</p>\s*</blockquote>',
+        r'<figure class="figure">\n  <img\1 class="figure-img img-fluid rounded">\n  <figcaption class="figure-caption">\2</figcaption>\n</figure>',
+        html,
+        flags=re.DOTALL
+    )
+
     # Split the HTML into paragraphs
     paragraphs = html.split('\n\n')
     

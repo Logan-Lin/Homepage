@@ -28,7 +28,7 @@
       font-family: 'Lato', sans-serif;
     }
 
-    img {
+    img, .figure {
       max-width: min(100%, 800px);
       height: auto;
       display: block;
@@ -69,5 +69,8 @@
 <script src="/data.js"></script>
 <script src="/render.js"></script>
 <script>
+  $(document).ready(function() {
+    $('img').addClass('figure-img rounded');
+  });
 </script>
 <script src="/scroll.js"></script>

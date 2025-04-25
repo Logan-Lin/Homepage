@@ -72,15 +72,9 @@ body {
     color: var(--text-secondary) !important;
   }
 
-  /* .link-body-emphasis {
-    color: var(--text-color) !important;
-    text-decoration: underline !important;
+  .figure-caption {
+    color: var(--text-secondary) !important;
   }
-
-  .link-body-emphasis:hover {
-    color: var(--link-hover-color) !important;
-    text-decoration: underline !important;
-  } */
 }
 
 .link {

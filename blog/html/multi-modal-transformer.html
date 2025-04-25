@@ -74,23 +74,23 @@
 <p>Since images and language modalities represent continuous and discrete data respectively, we will use them as examples throughout this article. Keep in mind that the techniques introduced can be readily extended to other modalities, including spatiotemporal data.</p>
 <h1>General Goal</h1>
 <p>The goal of a multi-modal Transformer is to create a model that can accept multi-modal inputs and produce multi-modal outputs. For example, instead of using a CNN-based image encoder and a Transformer-based language encoder to map image and language modalities to the latent space separately, a multi-modal Transformer would be able to process the combination of image and language (sentence) as a single sequence.</p>
-<p><img alt="image" src="/blogs/md/multi-modal-transformer.assets/image.png" /></p>
+<p><img alt="image" src="/blog/md/multi-modal-transformer.assets/image.png" /></p>
 <blockquote>
 <p>An example of “conventional” multi-modal fusion. Different modality is processed by separate models and fused at some point. Source: <em>Xiang, Hao, Runsheng Xu, and Jiaqi Ma. "HM-ViT: Hetero-modal vehicle-to-vehicle cooperative perception with vision transformer." CVPR, 2023.</em></p>
 </blockquote>
-<p><img alt="image (1)" src="/blogs/md/multi-modal-transformer.assets/image (1).png" /></p>
+<p><img alt="image (1)" src="/blog/md/multi-modal-transformer.assets/image (1).png" /></p>
 <blockquote>
 <p>An example of a Transformer that can handle multi-modal inputs and outputs. Different modalities are all projected into tokens and subsequently processed by a unified Transformer encoder. Source: <em>Kondratyuk, Dan, Lijun Yu, et al. “VideoPoet: A Large Language Model for Zero-Shot Video Generation,” ICML, 2024.</em></p>
 </blockquote>
 <p>Beyond multi-modal processing, a multi-function Transformer can, for example, function as both a language model (auto-regressive generation) and diffusion denoiser (score-matching generation) simultaneously, supporting two of the most common generation schemes used today.</p>
 <h1>Modality Embedding</h1>
 <p>A fundamental challenge in unifying multiple modalities within a single Transformer is how to represent different modalities in the same embedding space. For the "QKV" self-attention mechanism to work properly, each item in the input sequence must be represented by an embedding vector of the same dimension, matching the "model dimension" of the Transformer.</p>
-<p><img alt="image (2)" src="/blogs/md/multi-modal-transformer.assets/image (2).png" /></p>
+<p><img alt="image (2)" src="/blog/md/multi-modal-transformer.assets/image (2).png" /></p>
 <blockquote>
 <p>Illustration of the QKV self-attention mechanism in Transformer. Source: https://en.wikipedia.org/wiki/Attention_(machine_learning)</p>
 </blockquote>
 <p>The most common method for mapping language into the embedding space is through tokenization and token embedding. A tokenizer maps a word or word fragment into a discrete token index, and an index-fetching embedding layer (implemented in frameworks like PyTorch with <code>nn.Embedding</code>) maps this index into a fixed-dimension embedding vector. In principle, all discrete features can be mapped into the embedding space using this approach.</p>
-<p><img alt="1_Dk1X5rmLomXqqTPeuHgBpw" src="/blogs/md/multi-modal-transformer.assets/1_Dk1X5rmLomXqqTPeuHgBpw.png" /></p>
+<p><img alt="1_Dk1X5rmLomXqqTPeuHgBpw" src="/blog/md/multi-modal-transformer.assets/1_Dk1X5rmLomXqqTPeuHgBpw.png" /></p>
 <blockquote>
 <p>Visualization of tokenizer and index-fetching embedding layer. Source: https://medium.com/@hunter-j-phillips/the-embedding-layer-27d9c980d124</p>
 </blockquote>
@@ -103,7 +103,7 @@
 $$
 i = \arg\min_j ||\boldsymbol z - \boldsymbol C_j||₂
 $$
-<img alt="Screen_Shot_2020-06-28_at_4.26.40_PM" src="/blogs/md/multi-modal-transformer.assets/Screen_Shot_2020-06-28_at_4.26.40_PM.png" /></p>
+<img alt="Screen_Shot_2020-06-28_at_4.26.40_PM" src="/blog/md/multi-modal-transformer.assets/Screen_Shot_2020-06-28_at_4.26.40_PM.png" /></p>
 <h2>Lookup-Free Quantization</h2>
 <p>A significant limitation of vector quantization is that it requires calculating distances between the given continuous vectors and the entire codebook, which becomes computationally expensive for large-scale codebooks. This creates tension with the need for expanded codebooks to represent complex modalities such as images and videos. Research has shown that simply increasing the number of unique tokens doesn't always improve codebook performance.</p>
 <blockquote>
@@ -149,7 +149,7 @@ $$</p>
 <p>For language generation, Transformers typically use classifier output layers, mapping the latent vector of each item in the output sequence back to tokens. As we've established in the "modality embedding" section, the optimal method to embed continuous features is to quantize them into discrete tokens. Correspondingly, an intuitive method to output continuous features is to map these discrete tokens back to the continuous feature space, essentially reversing the vector quantization process.</p>
 <h2>Reverse Vector Quantization</h2>
 <p>One approach to reverse vector quantization is readily available in VQ-VAE, since it is an auto-encoder. Given a token <span class="arithmatex">\(i\)</span>, we can look up its embedding in the codebook as <span class="arithmatex">\(\boldsymbol C_i\)</span>, then apply a decoder network to map <span class="arithmatex">\(\boldsymbol C_i\)</span> back to the continuous feature vector <span class="arithmatex">\(\boldsymbol z\)</span>. The decoder network can be pre-trained in the VQ-VAE framework—pre-train the VQ-VAE tokenizer, encoder, and decoder using auto-encoding loss functions, or end-to-end trained along with the whole Transformer. In the NLP and CV communities, the pre-training approach is more popular, since there are many large-scale pre-trained auto-encoders available.</p>
-<p><img alt="image (4)" src="/blogs/md/multi-modal-transformer.assets/image (4).png" /></p>
+<p><img alt="image (4)" src="/blog/md/multi-modal-transformer.assets/image (4).png" /></p>
 <blockquote>
 <p>The encoder-decoder structure of MAGVIT (<em>Yu et al., “MAGVIT”</em>), a visual VQ-VAE model. A 3D-VQ encoder quantizes a video into discrete tokens, and a 3D-VQ decoder maps them back to the pixel space.</p>
 </blockquote>
@@ -157,14 +157,14 @@ $$</p>
 <p>For continuous feature generation, unlike language generation where the output tokens are the final output, we are essentially representing the final output with a limited size token space. Thus, for complicated continuous features like images and videos, we have to expand the token space or use more tokens to represent one image or one video frame to improve generation quality, which can result in efficiency challenges.</p>
 <p>There are several workarounds to improve the efficiency of multi-modal outputs. One approach is to generate low-resolution outputs first, then use a separate super-resolution module to improve the quality of the output. This approach is explored in <em>Kondratyuk et al., "VideoPoet"</em> and <em>Tian et al., "Visual Autoregressive Modeling"</em>. Interestingly, the overall idea is very similar to nVidia's DLSS, where the graphics card renders a low-resolution frame (e.g., 1080p) using the conventional rasterization pipeline, then a super resolution model increases the frame's resolution (e.g., 4k) utilizing the graphics card's tensor hardware, improving games' overall frame rate.</p>
 <p>Another workaround follows the idea of compression. Take video generation as an example. The model generates full features for key frames, and light-weight features for motion vectors that describe subtle differences from those key frames. This is essentially how inter-frame compressed video codecs work, which takes advantage of temporal redundancy between neighboring frames.</p>
-<p><img alt="image (5)" src="/blogs/md/multi-modal-transformer.assets/image (5).png" /></p>
+<p><img alt="image (5)" src="/blog/md/multi-modal-transformer.assets/image (5).png" /></p>
 <blockquote>
 <p>Keys frames and motion vectors used in <em>Jin et al., “Video-LaVIT.”</em></p>
 </blockquote>
 <h1>Fuse with Diffusion Models</h1>
 <p>Despite continuous efforts to enable representation and generation of images and videos with a language model structure (auto-regressive), current research indicates that diffusion models (more broadly speaking, score-matching generative models) outperform language models on continuous feature generation. Score-matching generative models have their own separate and substantial community, with strong theoretical foundations and numerous variations emerging each year, such as stochastic differential equations, bayesian flow, and rectified flow. In conclusion, score-matching generative models are clearly here to stay alongside language models.</p>
 <p>An intriguing question arises: why not integrate the structures of language models and diffusion models into one Transformer to reach the best of both worlds? <em>Zhou et al. in "Transfusion"</em> explored this idea. The approach is straightforward: build a Transformer that can handle both language and image inputs and outputs. The language component functions as a language model, while the image component serves as a denoiser network for diffusion models. The model is trained by combining the language modeling loss and DDPM loss, enabling it to function either as a language model or a text-to-image denoiser.</p>
-<p><img alt="image (6)" src="/blogs/md/multi-modal-transformer.assets/image (6).png" /></p>
+<p><img alt="image (6)" src="/blog/md/multi-modal-transformer.assets/image (6).png" /></p>
 <blockquote>
 <p>A Transformer capable of function as a language model and a diffusion denoiser at the same time. Source: <em>Zhou, Chunting, Lili Yu, et al. “Transfusion: Predict the Next Token and Diffuse Images with One Multi-Modal Model,” ICLR, 2025.</em></p>
 </blockquote>

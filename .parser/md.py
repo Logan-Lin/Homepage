@@ -15,7 +15,7 @@ def markdown_to_html_paragraphs(markdown_text: str) -> List[str]:
         List[str]: A list of HTML paragraphs, each wrapped in <p> tags
     """
     # Prepend "md/" to image paths if they don't already start with md/
-    markdown_text = re.sub(r'!\[(.*?)\]\((?!md/)([^/].*?\.assets/.*?)\)', r'![\1](/blogs/md/\2)', markdown_text)
+    markdown_text = re.sub(r'!\[(.*?)\]\((?!md/)([^/].*?\.assets/.*?)\)', r'![\1](/blog/md/\2)', markdown_text)
     
     # Check if the first line starts with a # for h1 title
     lines = markdown_text.split('\n')

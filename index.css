@@ -10,6 +10,7 @@
   --shadow-color: rgba(0, 0, 0, 0.15);
   --primary-text: #58151c;
   --secondary-text: #052c65;
+  --link-hover-color: #555;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,6 +24,7 @@
     --shadow-color: rgba(0, 0, 0, 0.5);
     --primary-text: #ffddb3;
     --secondary-text: #c6e2ff;
+    --link-hover-color: #ddd;
   }
 }
 
@@ -70,7 +72,7 @@ body {
     color: var(--text-secondary) !important;
   }
 
-  .link-body-emphasis {
+  /* .link-body-emphasis {
     color: var(--text-color) !important;
     text-decoration: underline !important;
   }
@@ -78,7 +80,7 @@ body {
   .link-body-emphasis:hover {
     color: var(--link-hover-color) !important;
     text-decoration: underline !important;
-  }
+  } */
 }
 
 .link {
@@ -87,6 +89,14 @@ body {
 }
 
 .link:hover {
+  color: var(--link-hover-color);
+}
+
+.blog-link {
+  color: var(--link-color);
+}
+
+.blog-link:hover {
   color: var(--link-hover-color);
 }
 

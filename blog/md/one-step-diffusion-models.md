@@ -113,7 +113,7 @@ Shortcut models are introduced in *Frans et al., "One Step Diffusion via Shortcu
 
 Based on this insight, on top of $x_t$ and $t$, shortcut models additionally include step size $d$ as part of the condition for the denoiser network. At small step sizes ($d\rightarrow 0$), the model behaves like a standard flow-matching model, learning the expected tangent from noise to data. For larger step sizes, the model learns that one large step should equal two consecutive smaller steps (self-consistency), creating a binary recursive formulation. The model is trained by combining the standard flow matching loss when $d=0$ and the self-consistency loss when $d>0$:
 $$
-\mathcal{L}^S(\theta) = E_{x_0 \sim \mathcal{N}, x_1 \sim \mathcal{D}, (t,d) \sim p(t,d)} [ \underbrace{\| s_\theta(x_t, t, 0) - (x_1 - x_0)\|^2}_{\text{Flow-Matching}} +
+\mathcal{L}^S(\theta) = E [ \underbrace{\| s_\theta(x_t, t, 0) - (x_1 - x_0)\|^2}_{\text{Flow-Matching}} +
 $$
 
 $$
@@ -121,7 +121,7 @@ $$
 $$
 
 $$
-\text{where} \quad \mathbf{s}_{\text{target}} = s_\theta(x_t, t, d)/2 + s_\theta(x'_{t+d}, t + d, d)/2 \quad
+\quad \mathbf{s}_{\text{target}} = s_\theta(x_t, t, d)/2 + s_\theta(x'_{t+d}, t + d, d)/2 \quad
 $$
 
 $$

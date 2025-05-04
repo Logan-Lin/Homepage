@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="/index.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato|Abril+Fatface|Domine&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Lato|Abril+Fatface|Domine&display=swap" rel="stylesheet"> -->
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script>
     MathJax = {
@@ -164,13 +164,13 @@ Similar to continuous-timestep DMs and discrete-timestep DMs, CMs also have cont
 <p>Shortcut models are introduced in <em>Frans et al., "One Step Diffusion via Shortcut Models."</em> The paper presents the insight that conventional DMs perform badly when jumping with large step sizes stems from their lack of awareness of the step size they are set to jump forward. Since they are only trained to comply with small step sizes, they are only learning the tangents in the curved vector field, not the "correct direction" when a large step size is used.</p>
 <p>Based on this insight, on top of <span class="arithmatex">\(x_t\)</span> and <span class="arithmatex">\(t\)</span>, shortcut models additionally include step size <span class="arithmatex">\(d\)</span> as part of the condition for the denoiser network. At small step sizes (<span class="arithmatex">\(d\rightarrow 0\)</span>), the model behaves like a standard flow-matching model, learning the expected tangent from noise to data. For larger step sizes, the model learns that one large step should equal two consecutive smaller steps (self-consistency), creating a binary recursive formulation. The model is trained by combining the standard flow matching loss when <span class="arithmatex">\(d=0\)</span> and the self-consistency loss when <span class="arithmatex">\(d&gt;0\)</span>:
 $$
-\mathcal{L}^S(\theta) = E_{x_0 \sim \mathcal{N}, x_1 \sim \mathcal{D}, (t,d) \sim p(t,d)} [ \underbrace{| s_\theta(x_t, t, 0) - (x_1 - x_0)|^2}_{\text{Flow-Matching}} +
+\mathcal{L}^S(\theta) = E [ \underbrace{| s_\theta(x_t, t, 0) - (x_1 - x_0)|^2}_{\text{Flow-Matching}} +
 $$</p>
 <div class="arithmatex">\[
 \underbrace{\|s_\theta(x_t, t, 2d) - \mathbf{s}_{\text{target}}\|^2}_{\text{Self-Consistency}}],
 \]</div>
 <div class="arithmatex">\[
-\text{where} \quad \mathbf{s}_{\text{target}} = s_\theta(x_t, t, d)/2 + s_\theta(x'_{t+d}, t + d, d)/2 \quad
+\quad \mathbf{s}_{\text{target}} = s_\theta(x_t, t, d)/2 + s_\theta(x'_{t+d}, t + d, d)/2 \quad
 \]</div>
 <div class="arithmatex">\[
 \text{and} \quad x'_{t+d} = x_t + s_\theta(x_t, t, d)d

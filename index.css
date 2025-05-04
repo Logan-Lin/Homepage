@@ -8,6 +8,14 @@
 }
 
 @font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato/Lato-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Domine';
   src: url('/fonts/Domine/static/Domine-Regular.ttf') format('truetype');
   font-weight: normal;
@@ -33,8 +41,16 @@
 
 @font-face {
   font-family: 'Georgia';
-  src: url('/fonts/georgia.ttf') format('truetype');
+  src: url('/fonts/georgia/georgia.ttf') format('truetype');
   font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Georgia';
+  src: url('/fonts/georgia/georgiab.ttf') format('truetype');
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }

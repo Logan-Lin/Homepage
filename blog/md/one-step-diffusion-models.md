@@ -48,13 +48,13 @@ We will introduce two branches of methods that aim to scale DMs to few or even r
 
 Distillation-based methods are also called **rectified flow** methods. Their idea follows the above insight of "curved ODE vector field": if the curved vectors (flows) are hindering the scaling of reverse process steps, can we try to straighten these vectors so that they are easy to approximate with polylines or even straight lines?
 
-*Liu, Gong, and Liu, "Flow Straight and Fast"* implements this idea, focusing on learning an ODE that follows straight vectors as much as possible. In the context of continuous time DMs where $T=1$, $t\in \mathbb R$ and $t\in$, suppose the clean data $X_0$ and noise $X_1$ each follows a data distribution, $X_0\sim \pi_0$ and $X_1\sim \pi_1$. The "straight vectors" can be achieved by solving a nonlinear least squares optimization problem:
+*Liu, Gong, and Liu, "Flow Straight and Fast"* implements this idea, focusing on learning an ODE that follows straight vectors as much as possible. In the context of continuous time DMs where $T=1$ and and $t\in[0,1]$, suppose the clean data $X_0$ and noise $X_1$ each follows a data distribution, $X_0\sim \pi_0$ and $X_1\sim \pi_1$. The "straight vectors" can be achieved by solving a nonlinear least squares optimization problem:
 $$
 \min_{v} \int_{0}^{1} \mathbb{E}\left[\left\|\left(X_{1}-X_{0}\right)-v\left(X_{t}, t\right)\right\|^{2}\right] \mathrm{d} t,
 $$
 
 $$
-\text{with} \quad X_{t}=t X_{1}+(1-t) X_{0}
+\quad X_{t}=t X_{1}+(1-t) X_{0}
 $$
 
 
@@ -113,7 +113,7 @@ Shortcut models are introduced in *Frans et al., "One Step Diffusion via Shortcu
 
 Based on this insight, on top of $x_t$ and $t$, shortcut models additionally include step size $d$ as part of the condition for the denoiser network. At small step sizes ($d\rightarrow 0$), the model behaves like a standard flow-matching model, learning the expected tangent from noise to data. For larger step sizes, the model learns that one large step should equal two consecutive smaller steps (self-consistency), creating a binary recursive formulation. The model is trained by combining the standard flow matching loss when $d=0$ and the self-consistency loss when $d>0$:
 $$
-\mathcal{L}^S(\theta) = E [ \underbrace{\| s_\theta(x_t, t, 0) - (x_1 - x_0)\|^2}_{\text{Flow-Matching}} +
+\mathcal{L} = \mathbb{E} [ \underbrace{\| s_\theta(x_t, t, 0) - (x_1 - x_0)\|^2}_{\text{Flow-Matching}} +
 $$
 
 $$
